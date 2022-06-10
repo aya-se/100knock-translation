@@ -1,7 +1,12 @@
+@use 'variables' as v;
+
 .header {
   background-color: #0090ac;
   height: 60px;
   padding: 0 20px;
+  @include v.mq(sm) {
+    height: 40px;
+  }
 }
 .header_contents {
   display: flex;
@@ -13,6 +18,9 @@
   font-size: 24px;
   margin: auto 0;
   text-decoration: none;
+  @include v.mq(sm) {
+    font-size: 18px;
+  }
 
   &:hover {
     color: white;
