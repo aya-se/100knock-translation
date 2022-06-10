@@ -38,6 +38,7 @@ export default function Home() {
           </div>
           <div className={styles.card_contents}>
             <textarea
+              placeholder="翻訳するにはテキストを入力してください。"
               className={styles.card_form}
               onChange={(e) => setInputText(e.target.value)}
               value={inputText}
@@ -74,8 +75,14 @@ export default function Home() {
           </div>
           <div className={styles.card_contents}>
             <div className={styles.card_text}>
-              <a href="https://nlp100.github.io/ja/">自然言語処理100本ノック</a>
-              で作成した機械翻訳モデルを、ブラウザ上で気軽に試すことができます。モデルはTransformerベースで、fairseqを利用して実装しています。
+              <a
+                href="https://nlp100.github.io/ja/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                自然言語処理100本ノック
+              </a>
+              で作成した機械翻訳モデルを、ブラウザ上で気軽に体験することができます。モデルはTransformerベースで、fairseqを利用して実装しています。
             </div>
           </div>
         </div>
