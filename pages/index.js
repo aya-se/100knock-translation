@@ -15,7 +15,7 @@ export default function Home() {
   }, []);
 
   // APIテスト
-  const url = 'http://127.0.0.1:8000/api/hoge';
+  const url = 'https://translation-100knock.herokuapp.com/api/hoge';
   useEffect(() => {
     axios.get(url).then((res) => {
       setInputText(res.data);
