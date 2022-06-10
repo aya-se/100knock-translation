@@ -32,6 +32,13 @@ export default function Footer() {
               rel="noreferrer"
             ></a>
           </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/kakeru-hattori-973404240/"
+              target="_blank"
+              rel="noreferrer"
+            ></a>
+          </li>
         </ul>
       </div>
     </footer>

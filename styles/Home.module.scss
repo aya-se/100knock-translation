@@ -5,55 +5,115 @@
   margin: 0 auto;
 }
 
-.btn_letter {
-  width: 50px;
-  height: 50px;
-  margin-top: 2.5px;
-  margin-left: 2.5px;
-  margin-right: 2.5px;
-  margin-bottom: 2.5px;
-  border-radius: 0px;
-  border-color: #d3d6da;
-  border-width: 2px;
-  text-align: center !important;
-  vertical-align: center !important;
-  font-size: 30px;
-  font-weight: bold;
-  padding: 0px;
-  @include v.mq(md) {
-    width: 40px;
-    height: 40px;
-    margin-top: 2px;
-    margin-left: 2px;
-    margin-right: 2px;
-    margin-bottom: 2px;
-    border-width: 1.6px;
-    font-size: 24px;
-  }
-  &:focus {
-    box-shadow: none !important;
-  }
-}
-
-.btn_keyboard {
-  width: 40px;
-  height: 50px;
-  margin-top: 2.5px;
-  margin-left: 2.5px;
-  margin-right: 2.5px;
-  margin-bottom: 2.5px;
-  background-color: rgb(240, 240, 240);
-  border-width: 2px;
-  text-align: center !important;
-  vertical-align: center !important;
+.subtitle {
   font-size: 20px;
-  padding: 0px;
-  &:focus {
-    box-shadow: none !important;
+  padding: 0 10px 10px;
+
+  @include v.mq(sm) {
+    font-size: 14px;
   }
 }
+.main_contents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  position: relative;
+  border: 1px solid #dae1e8;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  width: calc(50% - 20px);
+  transition: all ease 0.1s;
 
-.btn_keyboard_lg {
-  width: 62.5px;
-  font-size: 15px;
+  @include v.mq(sm) {
+    padding: 15px;
+    margin: 10px 0px;
+    width: 100%;
+  }
+
+  &:focus-within {
+    border-color: #00838f;
+  }
+
+  .card_header {
+    display: flex;
+    flex-wrap: wrap;
+    .card_title {
+      font-size: 16px;
+      font-weight: bold;
+      @include v.mq(sm) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .card_contents {
+    margin-top: 10px;
+  }
+
+  .card_form {
+    width: 100%;
+    height: 400px;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    resize: none;
+    @include v.mq(sm) {
+      font-size: 14px;
+      height: 75px;
+    }
+  }
+
+  .card_text {
+    font-size: 18px;
+    @include v.mq(sm) {
+      font-size: 14px;
+    }
+  }
+
+  .length_count {
+    position: absolute;
+    color: #9ba3ac;
+    bottom: 10px;
+    right: 15px;
+    @include v.mq(sm) {
+      font-size: 12px;
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+
+  .delete_button {
+    position: absolute;
+    color: #9ba3ac;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+
+    @include v.mq(sm) {
+      top: 7.5px;
+      right: 7.5px;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: #333;
+        background-color: #f7f7f7;
+      }
+    }
+  }
+}
+.card_explanation {
+  width: 100%;
 }
