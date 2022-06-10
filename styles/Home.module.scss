@@ -26,7 +26,7 @@
   padding: 20px;
   margin: 10px;
   width: calc(50% - 20px);
-  transition: all ease 0.1s;
+  transition: border ease 0.1s;
 
   @include v.mq(sm) {
     padding: 15px;
