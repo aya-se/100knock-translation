@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
+import axios from 'axios';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,8 +14,13 @@ export default function Home() {
     setIsLoading(false);
   }, []);
 
-  // テキスト入力
-
+  // APIテスト
+  const url = 'http://127.0.0.1:8000/api/hoge';
+  useEffect(() => {
+    axios.get(url).then((res) => {
+      setInputText(res.data);
+    });
+  },[]);
 
   // 入力テキスト削除
   const handleDeleteButton = (()=>{
