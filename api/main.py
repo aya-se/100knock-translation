@@ -5,6 +5,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
+    "https://translation-100knock.herokuapp.com"
 ]
 
 app.add_middleware(
