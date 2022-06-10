@@ -1,0 +1,105 @@
+@use 'variables' as v;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h2.section_title {
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 0.25em 0.5em; /*上下 左右の余白*/
+  background: transparent; /*背景透明に*/
+  border-left: solid 5px orange; /*左線*/
+  border-bottom: solid 1px lightgray;
+}
+
+h3.section_title {
+  font-family: 'Noto Sans', sans-serif;
+  padding-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  border-bottom: solid 1px lightgray;
+}
+
+.link-underline {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  &:after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform 0.3s;
+  }
+  &:hover {
+    font-weight: bold;
+    &:after {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.nav-link {
+  width: 100%;
+  min-width: 150px;
+  text-align: center;
+}
+
+/* その場で */
+.fade-in {
+  animation-name: fadeInAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* 左から */
+.fade-left {
+  animation-name: fadeLeftAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeLeftAnime {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
