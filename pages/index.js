@@ -28,9 +28,9 @@ export default function Home() {
     axios.post(`${url}/api/translation/${inputText}`).then((res) => {
       setIsLoading(false);
       setOutputText(res.data.en);
-    }).catch((err)=> {
+    })
+    .catch(() => {
       setIsLoading(false);
-      setOutputText("Error: 翻訳はローカル上でのみ動作します。");
     })
   });
 
