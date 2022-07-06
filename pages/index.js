@@ -10,16 +10,14 @@ export default function Home() {
   const [outputText, setOutputText] = useState("");
   const [maxLength, setMaxLength] = useState("200");
   const [url, setUrl] = useState("http://127.0.0.1:8000");
+
   // APIテスト
   useEffect(() => {
-    axios.get(`${url}/api/hoge`).then(() => {
-      setUrl("http://127.0.0.1:8000");
-      // setOutputText(res.data);
-    }).catch(() => {
+    if (!location.href.includes("localhost")) {
       // ローカル動作でない場合はHeroku側のサーバーを使用
-      // setUrl("https://translation-100knock.herokuapp.com");
-    });
-  },[url]);
+      setUrl("https://translation-100knock.herokuapp.com");
+    };
+  },[]);
 
   // 翻訳
   const handleTranslate = (() => {
