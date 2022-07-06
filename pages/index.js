@@ -14,10 +14,10 @@ export default function Home() {
   useEffect(() => {
     axios.get(`${url}/api/hoge`).then(() => {
       setUrl("http://127.0.0.1:8000");
-      //setOutputText(res.data);
+      // setOutputText(res.data);
     }).catch(() => {
       // ローカル動作でない場合はHeroku側のサーバーを使用
-      setUrl("https://translation-100knock.herokuapp.com");
+      // setUrl("https://translation-100knock.herokuapp.com");
     });
   },[url]);
 
@@ -45,6 +45,7 @@ export default function Home() {
         return () => clearInterval(interval);
     }, [callback, delay]);
   }
+  
   useInterval(() => {
     if (prevInputText !== inputText) {
       setPrevInputText(inputText);

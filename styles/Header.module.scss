@@ -4,11 +4,13 @@
   background-color: #0090ac;
   height: 60px;
   padding: 0 40px;
+
   @include v.mq(sm) {
     height: 40px;
     padding: 0 20px;
   }
 }
+
 .header_contents {
   display: flex;
   flex-wrap: wrap;
@@ -21,6 +23,7 @@
   font-size: 24px;
   margin: auto 0;
   text-decoration: none;
+  
   @include v.mq(sm) {
     font-size: 18px;
   }

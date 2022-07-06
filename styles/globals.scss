@@ -51,6 +51,7 @@ h3.section_title {
   position: relative;
   display: inline-block;
   text-decoration: none;
+
   &:after {
     position: absolute;
     bottom: -4px;
@@ -63,8 +64,10 @@ h3.section_title {
     transform-origin: center top;
     transition: transform 0.3s;
   }
+
   &:hover {
     font-weight: bold;
+    
     &:after {
       transform: scale(1, 1);
     }

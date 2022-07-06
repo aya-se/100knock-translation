@@ -18,6 +18,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .card {
   position: relative;
   border: 1px solid #dae1e8;
@@ -41,9 +42,11 @@
   .card_header {
     display: flex;
     flex-wrap: wrap;
+
     .card_title {
       font-size: 16px;
       font-weight: bold;
+
       @include v.mq(sm) {
         font-size: 12px;
       }
@@ -61,6 +64,7 @@
     border: none;
     outline: none;
     resize: none;
+
     @include v.mq(sm) {
       font-size: 14px;
       height: 75px;
@@ -136,6 +140,7 @@
       height: 30px;
       font-size: 20px;
     }
+
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         color: #333;
