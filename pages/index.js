@@ -6,25 +6,68 @@ import axios from 'axios';
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [inputText, setInputText] = useState("");
+  const [prevInputText, setPrevInputText] = useState("");
   const [outputText, setOutputText] = useState("");
-  const [maxLength, setMaxLength] = useState("140");
-
-  // ローディング処理
-  useEffect(() => {
-    setIsLoading(false);
-  }, []);
-
+  const [maxLength, setMaxLength] = useState("200");
+  const [url, setUrl] = useState("http://127.0.0.1:8000");
   // APIテスト
-  const url = 'https://translation-100knock.herokuapp.com/api/hoge';
   useEffect(() => {
-    axios.get(url).then((res) => {
-      setInputText(res.data);
+    axios.get(`${url}/api/hoge`).then(() => {
+      setUrl("http://127.0.0.1:8000");
+      //setOutputText(res.data);
+    }).catch(() => {
+      // ローカル動作でない場合はHeroku側のサーバーを使用
+      setUrl("https://translation-100knock.herokuapp.com");
     });
-  },[]);
+  },[url]);
+
+  // 翻訳
+  const handleTranslate = (() => {
+    if (inputText === "") return;
+    if (inputText.length > maxLength) return;
+    setIsLoading(true);
+    setOutputText("");
+    axios.post(`${url}/api/translation/${inputText}`).then((res) => {
+      setIsLoading(false);
+      setOutputText(res.data.en);
+    }).catch((err)=> {
+      setIsLoading(false);
+      setOutputText("Error: 翻訳の実行に失敗しました。");
+    })
+  });
+
+  // 翻訳APIのinterval設定
+  const useInterval = (callback, delay) => {
+    useEffect(() => {
+        const interval = setInterval(() => 
+            callback()
+        , delay);
+        return () => clearInterval(interval);
+    }, [callback, delay]);
+  }
+  useInterval(() => {
+    if (prevInputText !== inputText) {
+      setPrevInputText(inputText);
+      handleTranslate();
+    }
+  }, 3000);
 
   // 入力テキスト削除
-  const handleDeleteButton = (()=>{
+  const handleDeleteButton = (() => {
     setInputText("");
+    setOutputText("");
+  })
+
+  // 状態に応じたスタイル付与
+  const customClasses = ((type) => {
+    let classes = [styles.card]
+    if (type === "input" && inputText.length > maxLength) {
+      classes.push(styles.over_length);
+    }
+    if (type === "output" && isLoading) {
+      classes.push(styles.loading);
+    }
+    return classes.join(" ");
   })
 
   return (
@@ -38,7 +81,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.main_contents}>
-        <div className={styles.card}>
+        <div className={customClasses("input")}>
           <div className={styles.card_header}>
             <div className={styles.card_title}>翻訳元の文 (日本語)</div>
           </div>
@@ -62,7 +105,7 @@ export default function Home() {
             </button>
           )}
         </div>
-        <div className={styles.card}>
+        <div className={customClasses("output")}>
           <div className={styles.card_header}>
             <div className={styles.card_title}>翻訳後の文 (英語)</div>
           </div>
@@ -74,6 +117,11 @@ export default function Home() {
               maxLength={maxLength}
             ></textarea>
           </div>
+          { isLoading &&
+            <div className={styles.loading_screen}>
+              <div className={[styles.loading_icon, "spinner-border"].join(" ")} role="status"/>
+            </div>
+          }
         </div>
         <div className={[styles.card, styles.card_explanation].join(' ')}>
           <div className={styles.card_header}>
