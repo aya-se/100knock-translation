@@ -45,7 +45,7 @@ export default function Home() {
         return () => clearInterval(interval);
     }, [callback, delay]);
   }
-  
+
   useInterval(() => {
     if (prevInputText !== inputText) {
       setPrevInputText(inputText);
@@ -173,9 +173,9 @@ export default function Home() {
                 className={styles.card_player_contents}
                 src="https://www.youtube.com/embed/UQ94e8wRxiw"
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allowFullScreen
               />
             </div>
           </div>
