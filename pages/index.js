@@ -71,7 +71,7 @@ export default function Home() {
   })
 
   return (
-    <div className="fade-in">
+    <div>
       <Head>
         <title>100knock Translation</title>
       </Head>
@@ -140,7 +140,7 @@ export default function Home() {
                   </a>
                   で作成した機械翻訳モデルを、ブラウザ上で気軽に体験することができます。モデルはTransformerベースで、fairseqを利用して実装しています。
                 </li>
-                <li>モデルのファイル容量が大きく(checkpoint)、Heroku等へのデプロイが困難であるため、<strong>実際に翻訳が動作するのはローカル上のみ</strong>となっています。</li>
+                <li>モデルのファイル容量が大きく(checkpoint)、Heroku等へのデプロイが困難であるため、<strong>実際に翻訳が動作するのはローカル環境上のみ</strong>となっています。</li>
               </ul>
             </div>
           </div>
@@ -156,6 +156,26 @@ export default function Home() {
                 <li>特に固有名詞や英単語には、どうしても対応できないことが多くなっています。</li>
                 <li>長すぎる文を入力すると、途中で翻訳が打ち切られてしまったり、不適切な訳になってしまうことがあります。</li>
               </ul>
+            </div>
+          </div>
+        </div>
+        <div className={[styles.card, styles.card_explanation].join(' ')}>
+          <div className={styles.card_header}>
+            <div className={styles.card_title}>翻訳サーバーの動作デモ動画</div>
+          </div>
+          <div className={styles.card_contents}>
+            <div className={styles.card_text}>
+              ローカル環境下で、実際に翻訳モデルを動作させた様子を動画に収録しました。
+            </div>
+            <div className={styles.card_player}>
+              <iframe
+                className={styles.card_player_contents}
+                src="https://www.youtube.com/embed/UQ94e8wRxiw"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
             </div>
           </div>
         </div>

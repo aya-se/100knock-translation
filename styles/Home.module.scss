@@ -74,6 +74,36 @@
     }
   }
 
+  .card_player {
+    position: relative;
+    margin: 15px auto;
+    width: 90%;
+    max-width: 720px;
+
+    &:before {
+      content:"";
+      display: block;
+      padding-top: 62.5%;
+    }
+
+    .card_player_contents {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      
+      @include v.mq(md) {
+        border-radius: 12px;
+      }
+
+      &:focus-within {
+        border-radius: 0;
+      } 
+    }
+  }
+
   .length_count {
     position: absolute;
     color: #9ba3ac;

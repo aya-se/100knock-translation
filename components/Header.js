@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.header_contents}>
-        <Link  href="/">
+        <Link href="/">
           <a className={styles.header_title}>100knock Translation</a>
         </Link>
       </div>
