@@ -16,6 +16,14 @@ a {
   }
 }
 
+ul {
+  margin-block-end: 0;
+  padding-inline-start: 20px;
+  @include v.mq(md) {
+    padding-inline-start: 15px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

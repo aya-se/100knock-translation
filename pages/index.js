@@ -32,7 +32,7 @@ export default function Home() {
       setOutputText(res.data.en);
     }).catch((err)=> {
       setIsLoading(false);
-      setOutputText("Error: 翻訳の実行に失敗しました。");
+      setOutputText("Error: 翻訳はローカル上でのみ動作します。");
     })
   });
 
@@ -50,7 +50,7 @@ export default function Home() {
       setPrevInputText(inputText);
       handleTranslate();
     }
-  }, 3000);
+  }, 2000);
 
   // 入力テキスト削除
   const handleDeleteButton = (() => {
@@ -129,14 +129,33 @@ export default function Home() {
           </div>
           <div className={styles.card_contents}>
             <div className={styles.card_text}>
-              <a
-                href="https://nlp100.github.io/ja/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                自然言語処理100本ノック
-              </a>
-              で作成した機械翻訳モデルを、ブラウザ上で気軽に体験することができます。モデルはTransformerベースで、fairseqを利用して実装しています。
+              <ul>
+                <li>
+                  <a
+                    href="https://nlp100.github.io/ja/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    自然言語処理100本ノック
+                  </a>
+                  で作成した機械翻訳モデルを、ブラウザ上で気軽に体験することができます。モデルはTransformerベースで、fairseqを利用して実装しています。
+                </li>
+                <li>モデルのファイル容量が大きく(checkpoint)、Heroku等へのデプロイが困難であるため、<strong>実際に翻訳が動作するのはローカル上のみ</strong>となっています。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className={[styles.card, styles.card_explanation].join(' ')}>
+          <div className={styles.card_header}>
+            <div className={styles.card_title}>翻訳に関する注意事項</div>
+          </div>
+          <div className={styles.card_contents}>
+            <div className={styles.card_text}>
+              <ul>
+                <li>未知の単語に対しては不適切な訳を返すことが多いです。</li>
+                <li>特に固有名詞や英単語には、どうしても対応できないことが多くなっています。</li>
+                <li>長すぎる文を入力すると、途中で翻訳が打ち切られてしまったり、不適切な訳になってしまうことがあります。</li>
+              </ul>
             </div>
           </div>
         </div>
