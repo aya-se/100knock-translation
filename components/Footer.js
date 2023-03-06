@@ -6,14 +6,7 @@ export default function Footer() {
         <ul className={styles.sns_links + ' mx-3'}>
           <li>
             <a
-              href="https://twitter.com/Hakuba_snow"
-              target="_blank"
-              rel="noreferrer"
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://www.youtube.com/channel/UCW4FH8oKhHE8vIRnr0StJ8g"
+              href="https://twitter.com/ayase_lab"
               target="_blank"
               rel="noreferrer"
             ></a>
